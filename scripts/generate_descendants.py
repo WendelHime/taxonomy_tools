@@ -2,6 +2,7 @@
 import os
 import re
 import sys
+import sqlite3
 import argparse
 import logging
 
@@ -71,7 +72,7 @@ if __name__ == '__main__':
         except Exception as ex:
             logging.error('Error creating output dir: %s' % str(ex))
             sys.exit(1)
-    fh_nodes = open(os.path.join(output, 'nodes.dmp'), 'w')
+    fh_nodes = open(os.path.join(output, 'nodes.csv'), 'a')
     
     logging.info('Getting nodes descendants from: %s' % str(rank_id))
     green_ids = [rank_id]
